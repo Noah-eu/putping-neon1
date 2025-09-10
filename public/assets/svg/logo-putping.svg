@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 420">
+  <defs>
+    <filter id="glowBlue" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="7" result="b1"/>
+      <feGaussianBlur stdDeviation="16" result="b2"/>
+      <feMerge>
+        <feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      .word{ font-family: "Ryga", system-ui, sans-serif; fill:none; }
+      .outer{ stroke:#21e4ff; stroke-width:28; stroke-linecap:round; stroke-linejoin:round; filter:url(#glowBlue); }
+      .inner{ stroke:#b8f6ff; stroke-width:10; stroke-linecap:round; stroke-linejoin:round; }
+    </style>
+  </defs>
+  <g transform="translate(40,300)">
+    <text class="word outer" x="0" y="0" font-size="260">PutPing</text>
+    <text class="word inner" x="0" y="0" font-size="260">PutPing</text>
+  </g>
+</svg>

@@ -1,0 +1,33 @@
+<svg viewBox="0 0 256 352" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="g1"/>
+      <feGaussianBlur stdDeviation="6" result="g2"/>
+      <feMerge>
+        <feMergeNode in="g2"/>
+        <feMergeNode in="g1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      .pin-fill{ fill:#071b2d; }
+      .pin-stroke{ stroke-width:8; filter:url(#glow); }
+      .ring{ stroke-width:10; fill:none; stroke-linecap:round; stroke-linejoin:round; filter:url(#glow); }
+      .blue .pin-stroke, .blue .ring   { stroke:#2de1ff; }
+      .pink .pin-stroke, .pink .ring   { stroke:#ff5aa5; }
+      .green .pin-stroke, .green .ring { stroke:#22c55e; }
+      .purple .pin-stroke, .purple .ring { stroke:#7b61ff; }
+    </style>
+  </defs>
+  <g class="blue"> <!-- změň class na pink/green/purple -->
+    <path class="pin-fill pin-stroke"
+      d="M128 20
+         C198 20 240 68 240 130
+         C240 190 173 242 146 282
+         C138 294 133 308 128 320
+         C123 308 118 294 110 282
+         C83 242 16 190 16 130
+         C16 68 58 20 128 20 Z"/>
+    <circle class="ring" cx="128" cy="128" r="89.6"/>
+  </g>
+</svg>

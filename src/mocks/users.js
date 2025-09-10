@@ -1,0 +1,1 @@
+export const MOCK_USERS=[{id:'pingo',name:'PINGO',gender:'other',photo:'/assets/svg/marker.svg',coords:{lng:14.42,lat:50.09}}];

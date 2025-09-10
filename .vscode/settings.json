@@ -1,0 +1,15 @@
+{
+  // 1) Ukládej vše automaticky (i po zásahu Codexu)
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 800,
+
+  // 2) Auto-commit + push po každém uložení
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "match": ".*",
+        "cmd": "bash -lc 'git add -A && (git diff --cached --quiet || (git commit -m \"auto: $(date +\"%FT%T\")\" && git push))'"
+      }
+    ]
+  }
+}

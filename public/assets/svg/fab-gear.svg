@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <filter id="g" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="a"/>
+      <feGaussianBlur stdDeviation="7" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/><feMergeNode in="a"/><feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      .s{ fill:none; stroke:#20e4ff; stroke-width:18; stroke-linecap:round; stroke-linejoin:round; filter:url(#g); }
+    </style>
+  </defs>
+  <circle class="s" cx="128" cy="128" r="40"/>
+  <path class="s" d="M128 22 v24 M128 210 v24 M22 128 h24 M210 128 h24 M51 51 l17 17 M188 188 l17 17 M51 205 l17-17 M188 68 l17-17"/>
+</svg>

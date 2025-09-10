@@ -1,0 +1,10 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "users": { "$uid": { ".read": "auth != null && auth.uid === $uid", ".write": "auth != null && auth.uid === $uid" } },
+    "pings": { "$to": { ".read": "auth != null && auth.uid === $to", "$from": { ".write": "auth != null && auth.uid === $from" } } },
+    "pairs": { "$pid": { ".read": "auth != null && root.child('pairMembers/'+$pid+'/'+auth.uid).exists()", ".write": "auth != null && root.child('pairMembers/'+$pid+'/'+auth.uid).exists()" } },
+    "messages": { "$pid": { "$msgId": { ".read": "auth != null && root.child('pairMembers/'+$pid+'/'+auth.uid).exists()", ".write": "auth != null && root.child('pairMembers/'+$pid+'/'+auth.uid).exists() && newData.child('from').val() === auth.uid" } } }
+  }
+}

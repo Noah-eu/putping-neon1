@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 600 800"
+   version="1.1"
+   id="svg793"
+   sodipodi:docname="logo+heart.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview795"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.35355339"
+     inkscape:cx="322.44069"
+     inkscape:cy="482.24682"
+     inkscape:window-width="1920"
+     inkscape:window-height="1128"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg793" />
+  <defs
+     id="defs785">
+    <!-- Vysoké rozlišení filtru + userSpaceOnUse -->
+    <filter
+       id="glowBlue"
+       filterUnits="userSpaceOnUse"
+       x="-400"
+       y="-400"
+       width="1400"
+       height="1600"
+       filterRes="1500">
+      <feGaussianBlur
+         stdDeviation="12"
+         result="b1"
+         id="feGaussianBlur757" />
+      <feGaussianBlur
+         stdDeviation="28"
+         result="b2"
+         id="feGaussianBlur759" />
+      <feMerge
+         id="feMerge767">
+        <feMergeNode
+           in="b2"
+           id="feMergeNode761" />
+        <feMergeNode
+           in="b1"
+           id="feMergeNode763" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode765" />
+      </feMerge>
+    </filter>
+    <filter
+       id="glowRed"
+       filterUnits="userSpaceOnUse"
+       x="-400"
+       y="-400"
+       width="1400"
+       height="1600"
+       filterRes="1500">
+      <feGaussianBlur
+         stdDeviation="10"
+         result="r1"
+         id="feGaussianBlur770" />
+      <feGaussianBlur
+         stdDeviation="22"
+         result="r2"
+         id="feGaussianBlur772" />
+      <feMerge
+         id="feMerge780">
+        <feMergeNode
+           in="r2"
+           id="feMergeNode774" />
+        <feMergeNode
+           in="r1"
+           id="feMergeNode776" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode778" />
+      </feMerge>
+    </filter>
+    <style
+       id="style783">
+      .pin   { fill:none; stroke:#21e4ff; stroke-width:24; stroke-linecap:round; stroke-linejoin:round; filter:url(#glowBlue); }
+      .heart { fill:none; stroke:#ff4d2e; stroke-width:20; stroke-linecap:round; stroke-linejoin:round; filter:url(#glowRed); }
+    </style>
+    <filter
+       id="glowBlue-3"
+       x="-0.076087463"
+       y="-0.27241949"
+       width="1.1521749"
+       height="1.544839">
+      <feGaussianBlur
+         stdDeviation="7"
+         result="b1"
+         id="feGaussianBlur300" />
+      <feGaussianBlur
+         stdDeviation="16"
+         result="b2"
+         id="feGaussianBlur302" />
+      <feMerge
+         id="feMerge310">
+        <feMergeNode
+           in="b2"
+           id="feMergeNode304" />
+        <feMergeNode
+           in="b1"
+           id="feMergeNode306" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode308" />
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- TEARDROP -->
+  <path
+     class="pin"
+     d="m 301.59467,33.439661 c 160,0 275.06353,104.854709 275.06353,264.854709 C 576.6582,438.29437 430,580 350,700 330,730 316.25647,745.32733 301.25647,775.32733 286.25647,745.32733 270,730 250,700 170,580 22.655396,437.57025 22.655396,297.57025 c 0,-160 118.939274,-264.130589 278.939274,-264.130589 z"
+     id="path787"
+     sodipodi:nodetypes="ssscsss"
+     transform="matrix(0.353196,0,0,0.34789754,194.04124,144.84134)" />
+  <!-- DVOJITÉ SRDCE (stejná tloušťka, obě „svítí“) -->
+  <path
+     class="heart"
+     d="m 298.078,189.27011 c 64.95697,-75.66467 184.18402,-49.67874 224.18402,50.32126 40,110 -44.16064,187.89578 -224.16064,347.89578 -180,-160 -262.078431,-241.76627 -222.078431,-351.76627 40.000001,-100 159.739621,-114.81082 222.055051,-46.45077 z"
+     id="path789"
+     sodipodi:nodetypes="ccccc"
+     transform="matrix(0.30084926,0,0,0.30051227,209.74518,155.44891)" />
+  <path
+     class="heart"
+     d="m 298.10138,227.48715 c 50,-65 160,-60 190,25 35,90 -50,160 -190,290 -140,-130 -225.000001,-200 -190,-290 30,-85 140,-90 190,-25 z"
+     id="path791"
+     transform="matrix(0.30084926,0,0,0.30051227,209.74518,155.44891)" />
+  <g
+     transform="matrix(0.50709021,0,0,0.42485402,45.83323,539.40323)"
+     id="g321">
+    <text
+       class="word outer"
+       x="0"
+       y="0"
+       font-size="260px"
+       id="text317"
+       style="font-family:Ryga, system-ui, sans-serif;fill:none;stroke:#21e4ff;stroke-width:28;stroke-linecap:round;stroke-linejoin:round;filter:url(#glowBlue-3)">PutPing</text>
+    <text
+       class="word inner"
+       x="0"
+       y="0"
+       font-size="260px"
+       id="text319"
+       style="font-family:Ryga, system-ui, sans-serif;fill:none;stroke:#b8f6ff;stroke-width:10;stroke-linecap:round;stroke-linejoin:round">PutPing</text>
+  </g>
+</svg>
