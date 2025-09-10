@@ -1,3 +1,4 @@
+import 'mapbox-gl/dist/mapbox-gl.css';
 import React, { useEffect, useRef, useState } from 'react';
 import { listenToUsers, listenToPings, sendPing, acceptPing, rejectPing } from '../firebase/db.js';
 import { createMarkerEl } from './MarkerEl.jsx';
