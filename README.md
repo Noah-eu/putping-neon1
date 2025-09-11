@@ -36,3 +36,4 @@ Najdeš v `src/firebase/rules.json`. Nasazení:
 ## Netlify
 - Build: `npm run build`
 - Publish: `dist/`
+
