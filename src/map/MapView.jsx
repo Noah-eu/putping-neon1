@@ -1,6 +1,8 @@
 import 'mapbox-gl/dist/mapbox-gl.css';
 import React, { useEffect, useRef, useState } from 'react';
-import { listenToUsers, listenToPings, sendPing, acceptPing, rejectPing } from '../firebase/db.js';
+import { listenToUsers, listenToPings, sendPing, acceptPing, rejectPing, updateMyLocation } from '../firebase/db.js';
+import { getAuth } from '../firebase/index.js';
+import { onAuthStateChanged } from 'firebase/auth';
 import { createMarkerEl } from './MarkerEl.jsx';
 import './marker.css';
 
@@ -8,7 +10,16 @@ export default function MapView({ user, onOpenChat }){
   const mapElRef = useRef(null);
   const mapRef = useRef(null);
   const markersRef = useRef(new Map()); // uid -> marker
-  const [myUid] = useState(() => user?.uid || 'me-mock');
+  const [myUid, setMyUid] = useState(() => getAuth()?.currentUser?.uid || user?.uid || 'me-guest');
+
+  // keep uid synced with auth
+  useEffect(() => {
+    try{
+      const auth = getAuth();
+      const unsub = onAuthStateChanged(auth, (u) => setMyUid(u?.uid || 'me-guest'));
+      return () => { try{ unsub && unsub(); }catch{} };
+    }catch{ /* ignore */ }
+  }, []);
 
   // init mapbox
   useEffect(() => {
@@ -17,6 +28,8 @@ export default function MapView({ user, onOpenChat }){
       if (!token || !mapElRef.current) return;
       try{
         const mapboxgl = (await import('mapbox-gl')).default; mapboxgl.accessToken = token;
+        // expose for Marker constructor usage elsewhere
+        if (typeof window !== 'undefined') window.mapboxgl = mapboxgl;
         const map = new mapboxgl.Map({ container: mapElRef.current, style:'mapbox://styles/mapbox/dark-v11', center:[14.42076,50.08804], zoom:14 });
         mapRef.current = map; map.on('remove', () => mapRef.current = null);
       }catch(e){ console.warn('Mapbox not available', e); }
@@ -29,6 +42,8 @@ export default function MapView({ user, onOpenChat }){
     const unsub = listenToUsers(async (usersMap) => {
       const map = mapRef.current; if (!map) return;
       const entries = Object.entries(usersMap||{});
+      // expose latest users for FAB actions
+      try{ if (typeof window !== 'undefined') window.__LATEST_USERS = new Map(entries); }catch{}
       for (const [uid, u] of entries){
         if (!u || uid === myUid) continue;
         let mk = markersRef.current.get(uid);
@@ -87,6 +102,15 @@ export default function MapView({ user, onOpenChat }){
       }
     });
     return () => { try{ unsub && unsub(); }catch{} };
+  }, [myUid]);
+
+  // on mount, update own location once
+  useEffect(() => {
+    if (!myUid) return;
+    navigator.geolocation?.getCurrentPosition(
+      (pos) => updateMyLocation(myUid, { lat: pos.coords.latitude, lng: pos.coords.longitude }).catch(()=>{}),
+      () => {}, { enableHighAccuracy: true, maximumAge: 60000 }
+    );
   }, [myUid]);
 
   return (

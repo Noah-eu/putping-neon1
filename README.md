@@ -1,6 +1,6 @@
 # PutPing MVP (Vite + React)
 
-Neon social‑discovery MVP s Mapbox GL + Firebase. Běží i bez .env (mock režim).
+Neon social‑discovery MVP s Mapbox GL + Firebase.
 
 ## Spuštění
 - npm i
@@ -17,11 +17,14 @@ Frontend (Vite) proměnné v `.env.local`:
 - VITE_APP_ID
 - VITE_MEASUREMENT_ID
 - VITE_MAPBOX_TOKEN
-
 Server‑only proměnné v `.env.server` (nepublikovat do klienta):
 - OPENAI_API_KEY
+### Firebase & Auth
+- Aplikace po startu inicializuje Firebase a automaticky provede anonymní přihlášení (není nutný žádný uživatelský krok).
+- Po přihlášení zapíše/aktualizuje záznam `users/{uid}` a udržuje `onlineAt`.
+- Mapa funguje i bez ručního přihlášení; „Ping“ zapisuje do `pings/{toUid}/{myUid}`.
 
-Pokud `.env.local` chybí, běží mock režim a projdeš: Splash → Onboarding → Mapa → Ping → Chat. OpenAI klíč se načítá pouze na serveru z `.env.server` (nikdy z `import.meta.env`).
+OpenAI klíč se načítá pouze na serveru z `.env.server` (nikdy z `import.meta.env`).
 
 ## Firebase rules
 Najdeš v `src/firebase/rules.json`. Nasazení:
