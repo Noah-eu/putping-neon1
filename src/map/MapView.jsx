@@ -93,7 +93,7 @@ export default function MapView({ user, onOpenChat }){
     <div>
       <div ref={mapElRef} style={{ position:'absolute', inset:0 }} />
       <div style={{ position:'absolute', top:8, left:'50%', transform:'translateX(-50%)', zIndex:10, pointerEvents:'none' }}>
-        <img src={'/assets/svg/putping-wordmark.svg'} alt='PutPing' style={{ height:28 }} />
+        <img src={'/assets/svg/logo-putping.svg'} alt='PutPing' style={{ height:28 }} />
       </div>
     </div>
   );
